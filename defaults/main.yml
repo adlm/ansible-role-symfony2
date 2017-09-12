@@ -16,7 +16,6 @@ symfony_project_release: ~
 symfony_project_branch: develop
 symfony_project_php_path: php
 symfony_project_keep_releases: 5
-symfony_project_private_key: ~/.ssh/id_rsa
 symfony_project_git_clone_depth: 1
 symfony_project_github_token: ~
 symfony_project_console_opts: ""

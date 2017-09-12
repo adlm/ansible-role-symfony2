@@ -12,10 +12,6 @@
   file: state=directory path="{{symfony_shared_dir}}/{{item.path}}"
   with_items: "{{symfony_project_shared_folders}}"
 
-# unsecure
-- name: send key to remote deploy user
-  copy: src={{symfony_project_private_key}} dest=/tmp/private_key
-
 - name: Pull sources from the repository.
   git: repo={{symfony_project_repo}} dest={{symfony_current_release_dir}} version={{symfony_project_branch}} key_file=/tmp/private_key
 
