@@ -13,10 +13,7 @@
   with_items: "{{symfony_project_shared_folders}}"
 
 - name: Pull sources from the repository.
-  git: repo={{symfony_project_repo}} dest={{symfony_current_release_dir}} version={{symfony_project_branch}} key_file=/tmp/private_key
-
-- name: delete key
-  file: state=absent path="/tmp/private_key"
+  git: repo={{symfony_project_repo}} dest={{symfony_current_release_dir}} version={{symfony_project_branch}} accept_hostkey=yes key_file="/tmp/private_key"
 
 - name: Ensure shared folders are absent in release.
   file: state=absent path="{{symfony_current_release_dir}}/{{item.path}}"
