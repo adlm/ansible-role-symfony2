@@ -12,7 +12,6 @@ Example Playbook
     - symfony2
 
   vars:
-    # necessary project vars
     symfony_project_root: /var/www/my_project
     symfony_project_name: sportfaction
     symfony_project_composer_path: /var/www/my_project/shared/composer.phar
@@ -21,7 +20,6 @@ Example Playbook
 
     symfony_project_post_folder_creation_tasks: "{{playbook_dir}}/roles/symfony2/hooks/post_folder_creation.yml"
 
-    # optional parameters, covered by defaults
     symfony_project_console_opts: '--no-debug'
 
     symfony_project_release: ~
