@@ -1,8 +1,13 @@
 Symfony 2
 =========
 
+This roles helps to install Symfony2 on Ubuntu
+
 Requirements
 ------------
+
+This role requires Ansible 1.4 or higher, and platform requirements are listed
+in the metadata file.
 
 Example Playbook
 ----------------
@@ -36,3 +41,13 @@ Example Playbook
         symfony_project_enable_post_cmd: True
         symfony_project_fire_schema_update: True
         symfony_project_fire_migrations: True
+
+Dependencies
+------------
+
+None
+
+License
+-------
+
+BSD
