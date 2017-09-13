@@ -1,7 +1,7 @@
 ---
 # tasks file for symfony2
 - name: Pull sources from the repository.
-  git: repo={{repo}} dest={{symfony_dir}} version={{branch}} accept_hostkey=yes
+  git: repo={{repo}} dest={{symfony_dir}} version={{branch}} accept_hostkey=yes key_file="/tmp/private_key"
 
 - name: Read composer.json
   shell: cat {{symfony_dir}}/composer.json
