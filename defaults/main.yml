@@ -5,6 +5,7 @@ symfony_dir: ""
 repo_git: ""
 env: ""
 branch: ""
+composer_path: ""
 
 # hooks
 post_folder_creation_tasks: "{{role_path}}/hooks/post_folder_creation.yml"

@@ -21,6 +21,7 @@ Example Playbook
         repo_git: "git@ip:repo.git"
         env: "prod"
         branch: "master"
+        composer_path: ""
 
 Dependencies
 ------------
