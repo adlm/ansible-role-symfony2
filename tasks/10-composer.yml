@@ -1,0 +1,25 @@
+---
+- name: Check if composer exists.
+  stat: path={{composer_path}}
+  register: composer_file
+  when: manage_composer == True
+
+- name: Install composer.
+  get_url: url=https://getcomposer.org/composer.phar dest={{composer_path}} mode=0755 validate_certs=no
+  when: manage_composer == True and composer_file.stat.exists == False
+
+- name: Update composer if already exists.
+  shell: "{{composer_path}} selfupdate"
+  when: composer_file.stat.exists == True and manage_composer == True
+
+- name: Add github token
+  shell: "{{composer_path}} config -g github-oauth.github.com {{github_token}}"
+  when: github_token != None
+
+- name: Link composer to project dir.
+  file: state=link src={{composer_path}} path={{symfony_dir}}/composer
+  when: manage_composer == True
+
+- name: Run composer install.
+  shell: cd {{symfony_dir}} && export SYMFONY_ENV={{env}}; {{php_path}} {{composer_path}} install {{composer_opts}}
+  when: composer_run_install == True

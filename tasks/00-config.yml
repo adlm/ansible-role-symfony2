@@ -1,0 +1,3 @@
+---
+- name: Set parameters.yml file
+  shell: "mv {{symfony_dir}}/app/config/{{parameters_file}} {{symfony_dir}}/app/config/parameters.yml"

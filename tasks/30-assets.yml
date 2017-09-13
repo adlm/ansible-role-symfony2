@@ -1,0 +1,8 @@
+---
+- name: Dump assetic assets.
+  shell: cd {{symfony_dir}} && {{php_path}} {{symfony_console}} assetic:dump {{console_opts}}
+  when: composer_content.stdout.find('assetic-bundle') != -1
+
+- name: Symlink/install assets.
+  shell: cd {{symfony_dir}} && {{php_path}} {{symfony_console}} assets:install --symlink {{console_opts}}
+  when: symlink_assets == True

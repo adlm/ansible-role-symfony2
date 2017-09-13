@@ -1,0 +1,10 @@
+---
+- name: Set permission for logs and cache folder.
+  command: setfacl -R -m u:www-data:rwx -m u:root:rwx {{symfony_dir}}/app/cache/ {{symfony_dir}}/app/logs
+  tags:
+    - permissions
+
+- name: Set default permissions for logs and cache folder.
+  command: setfacl -dR -m u:www-data:rwx -m u:root:rwx {{symfony_dir}}/app/cache/ {{symfony_dir}}/app/logs
+  tags:
+    - permissions

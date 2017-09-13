@@ -1,0 +1,9 @@
+---
+- name: Run migrations.
+  action: shell {{php_path}} {{symfony_console}} doctrine:migrations:migrate -n
+  when: migrations == true and composer_content.stdout.find('doctrine-migrations-bundle') != -1
+
+- name: Schema Update.
+  action: shell {{php_path}} {{symfony_console}} doctrine:schema:update --force
+  when: schema_update == true
+  run_once: true
